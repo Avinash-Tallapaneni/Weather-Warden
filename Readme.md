@@ -15,11 +15,16 @@ The Weather Warden is a web application that provides users with up-to-date weat
 * The icons used to display weather conditions are easy to understand and visually appealing.
 * The application is responsive and can be used on different screen sizes.
 
+## Technologies Used
+The Weather Warden is built using HTML, CSS, and JavaScript. It uses APIs from OpenWeatherMap and Open-Meteo to fetch weather data and Meteocons icons to display the weather conditions. The application is hosted on Netlify.
+
 ## Screenshot
 
 ![](./weather-warden.png)
 
 ## Author
+
+My name is Avinash Tallapaneni, and I am a front-end web developer based in Chennai, India. I am passionate about coding and building applications that make a difference in people's lives.
 
 - Website - [Preview site on netlify](https://weather-warden.netlify.app/)
 - Twitter - [@TallapaneniAvi](https://www.twitter.com/TallapaneniAvi)

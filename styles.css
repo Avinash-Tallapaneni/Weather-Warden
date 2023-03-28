@@ -83,8 +83,11 @@ sup {
 
 a {
   color: #426eb5;
-  /* transition: all 0.3s ease-in-out; */
   text-decoration: none;
+}
+
+.fa-github {
+  color: black;
 }
 
 img {
@@ -318,6 +321,7 @@ footer {
 #description-temp {
   font-weight: 600;
 }
+
 
 .temps {
   font-weight: 600;
@@ -562,6 +566,7 @@ footer {
 }
 
 .li-content {
+  padding: calc(var(--padding)/4) 0;
   justify-content: flex-end;
   align-items: flex-start;
 }

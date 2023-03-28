@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="author" content="Avinash Tallapaneni" />
+    <meta
+      name="description"
+      content=" Weather Warden gives current weather conditions based on your location and can be searched based on location. Dashboard Dashboard was built with CSS for styling, JavaScript for functionality, and API for live weather data."
+    />
+
+    <title>Weather Warden</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="assets/animation-ready/partly-cloudy-day.svg"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="iconfiles.css" /> -->
+  </head>
+  <body>
+    <div class="flex fd-column main-container">
+      <header class="flex heading">
+        <h1>Weather Warden</h1>
+        <!-- <h1>Weather Dashboard</h1> -->
+
+        <div class="flex search-wrapper">
+          <div class="flex search-form">
+            <svg class="location-btn flex">
+              <use href="icons.svg#IcBaselineLocationOn"></use>
+            </svg>
+
+            <input
+              type="text"
+              placeholder="Search for Cities..."
+              id="location-search-btn"
+              autocomplete="off"
+            />
+
+            <svg class="search-btn flex">
+              <use href="icons.svg#OcticonSearch16"></use>
+            </svg>
+          </div>
+
+          <button class="dark-light-mode flex">
+            <img
+              class="mode-toggle"
+              src="assets/animation-ready/moon-first-quarter.svg"
+              width="150%"
+              height="150%"
+              alt=""
+            />
+          </button>
+        </div>
+      </header>
+
+      <section class="flex location-jokes">
+        <div class="location-details">
+          <h2><strong id="location"> Chennai , IN</strong></h2>
+
+          <div class="date-time">
+            <p id="date-time">Monday, February 21 at 10:17 PM</p>
+          </div>
+        </div>
+
+        <div class="flex fd-column jokes">
+          <p class="joke-question">
+            If a farmer raises wheat in dry weather, what does he raise in wet
+            weather?
+          </p>
+          <p class="joke-answer">An umbrella.</p>
+        </div>
+      </section>
+
+      <section class="location">
+        <div class="flex fd-column weather-info">
+          <div class="flex weather-info-card-1">
+            <div class="flex fd-column weather-location-card-1">
+              <div class="flex temperature-container-1">
+                <h1 class="temp">
+                  32
+                  <span class="unit-conversion" id="metric"
+                    ><span>&deg; </span> C
+                  </span>
+                  <sup>
+                    <span class="slash">
+                      / <a class="imperial" id="imperial" active>F</a></span
+                    >
+                  </sup>
+                </h1>
+                <div class="flex day-card">
+                  <img
+                    id="day-card"
+                    src="assets/animation-ready/thunderstorms-day-rain.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="flex temperature-container-2">
+                <div class="flex weather-condition">
+                  <p>
+                    <span id="description-temp">Clouds </span>
+                    <br />
+                    Feels like
+                    <span class="temps" id="feels-like"> 32 &deg; C</span>
+                    <br />
+                    <small id="condition-msg">
+                      <!-- <img src="assets/umbrella.svg" alt="broken" /> -->
+                      <img
+                        class="condition-icon"
+                        src="assets/animation-ready/umbrella.svg"
+                        alt="broken"
+                      />
+                      Ideal Conditions</small
+                    >
+                  </p>
+                </div>
+
+                <div class="flex location-image">
+                  <!-- <img src="assets/snow_image.png" alt="Rainy Image" /> -->
+                  <img
+                    class="current-temp-image"
+                    src="assets/rainy_image.png  "
+                    alt="Rainy Image"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="flex fd-column weather-location-card-2">
+              <div class="weather-location-small-1">
+                <div class="weather-additional-info">
+                  <h2>Air Quality</h2>
+                  <p>Main pollutant : PM 2.5</p>
+                </div>
+
+                <div class="flex weather-icons-btn">
+                  <button class="active flex" id="airquality-mask">
+                    <img src="assets/protection-mask.png" alt="broken" />
+                  </button>
+
+                  <!-- <button class="flex" id="visibility">
+                    <img
+                      src="assets/animation-ready/pollen-tree.svg"
+                      alt="broken"
+                    />
+                  </button> -->
+                  <!-- <button class="flex">
+                    <svg>
+                      <use href="icons.svg#BiWind"></use>
+                    </svg>
+                  </button> -->
+                </div>
+              </div>
+
+              <div
+                class="flex fd-column weather-location-small-2"
+                id="#weather-location-small-2a"
+              >
+                <h1 class="card-value">
+                  35 <sup class="aqi-card1-background">EU AQI</sup>
+                </h1>
+
+                <div class="flex aqi-card">
+                  <p class="aqi-card2-background">North-East Wind</p>
+                  <img
+                    class="compass"
+                    src="assets/animation-ready/compass.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="flex weather-location-small-3">
+                <div class="flex fd-column skill-box">
+                  <div class="flex top">
+                    <span class="title">Good</span>
+                    <span class="title">Hazardous</span>
+                  </div>
+                  <br />
+                  <div class="flex skill-bar">
+                    <span class="skill-per">
+                      <span class="flex tooltip" data-value="20">Standard</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="weather-location-card-3">
+              <ul class="weather-additional-details">
+                <li>
+                  <img src="assets/animation-ready/uv-index.svg" alt="broken" />
+                  <div class="flex fd-column li-content">
+                    <strong class="flex uv-index">
+                      2 UVI
+                      <img
+                        class="uv_index_warning"
+                        src="assets/animation-ready/code-green.svg"
+                      />
+                    </strong>
+                    <description class="uv-index-description">
+                      low risk from UV rays
+                    </description>
+                  </div>
+                </li>
+
+                <li>
+                  <img src="assets/animation-ready/humidity.svg" alt="broken" />
+                  <div class="flex fd-column li-content">
+                    <strong class="flex humidity">
+                      40%
+                      <img
+                        class="humidity_warning"
+                        src="assets/animation-ready/code-yellow.svg"
+                      />
+                    </strong>
+                    <description class="humidity-description">
+                      Comfortable levels of Humidity
+                    </description>
+                  </div>
+                </li>
+                <li>
+                  <img src="assets/animation-ready/windsock.svg" alt="broken" />
+                  <div class="flex fd-column li-content">
+                    <strong class="flex wind-speed">
+                      20 kmph
+                      <img
+                        class="wind_speed_warning"
+                        src="assets/animation-ready/code-green.svg"
+                      />
+                    </strong>
+                    <description class="wind-speed-description">
+                      Calm, perfect weather for a walk
+                    </description>
+                  </div>
+                </li>
+
+                <li>
+                  <img
+                    src="assets/animation-ready/pollen-tree.svg"
+                    alt="broken"
+                  />
+                  <div class="flex fd-column li-content">
+                    <strong class="flex pollen">
+                      0.2
+                      <img
+                        class="pollen_warning"
+                        src="assets/animation-ready/code-yellow.svg"
+                      />
+                    </strong>
+                    <description class="pollen-description">
+                      Low risk from Alder pollen
+                    </description>
+                  </div>
+                </li>
+                <!-- <li>
+                  <img
+                    src="./weather-icons-dev/design/fill/final/pollen-tree.svg"
+                    alt="broken"
+                  />
+                  <div class="flex fd-column li-content">
+                    <strong class="uv-index">
+                      20 UVI <span class="uv-index"> Moderate </span>
+                    </strong>
+                    <description class="uv-index-description">
+                      Moderate risk from UV rays
+                    </description>
+                  </div>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex fd-column weather-info-card-2">
+            <div class="flex toggle-btn">
+              <h2>Future forecast</h2>
+              <span class="flex button">
+                <button class="hourly">Today</button>
+                <button class="flex week active">Weekly</button>
+              </span>
+            </div>
+
+            <div class="flex weekly-forecast">
+              <ul class="flex daily-weekly-forecast">
+                <li class="flex fd-column day">
+                  <span class="forecast-date">Monday</span>
+                  <img
+                    class="weekly-forecast-icon"
+                    src="assets/animation-ready/overcast-night.svg"
+                    alt=""
+                  />
+                  <span class="forecast-temp-high"> 42 &deg; C</span>
+                  <span class="forecast-temp-low"> 32 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-date">Tuesday</span>
+                  <img
+                    class="weekly-forecast-icon"
+                    src="assets/animation-ready/thunderstorms-night-rain.svg"
+                    alt="broken"
+                  />
+                  <span class="forecast-temp-high"> 42 &deg; C</span>
+                  <span class="forecast-temp-low"> 32 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-date">Wednesday</span>
+                  <img
+                    class="weekly-forecast-icon"
+                    src="assets/animation-ready/partly-cloudy-night-snow.svg"
+                    alt=""
+                  />
+                  <span class="forecast-temp-high"> 42 &deg; C</span>
+                  <span class="forecast-temp-low"> 32 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-date">Thursday</span>
+                  <img
+                    class="weekly-forecast-icon"
+                    src="assets/animation-ready/clear-day.svg"
+                    alt=""
+                  />
+                  <span class="forecast-temp-high"> 42 &deg; C</span>
+                  <span class="forecast-temp-low"> 32 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-date">Friday</span>
+                  <img
+                    class="weekly-forecast-icon"
+                    src="assets/animation-ready/overcast-day.svg"
+                    alt=""
+                  />
+                  <span class="forecast-temp-high"> 42 &deg; C</span>
+                  <span class="forecast-temp-low"> 32 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-date">Saturday</span>
+                  <img
+                    class="weekly-forecast-icon"
+                    src="assets/animation-ready/mist.svg"
+                    alt=""
+                  />
+                  <span class="forecast-temp-high"> 42 &deg; C</span>
+                  <span class="forecast-temp-low"> 32 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-date">Sunday</span>
+                  <img
+                    class="weekly-forecast-icon"
+                    src="assets/animation-ready/rain.svg"
+                    alt=""
+                  />
+                  <span class="forecast-temp-high"> 42 &deg; C</span>
+                  <span class="forecast-temp-low"> 32 &deg; C</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex daily-forecast hidden">
+              <ul class="flex daily-weekly-forecast">
+                <li class="flex fd-column day">
+                  <span class="forecast-time">5am</span>
+                  <img
+                    class="daily-forecast-icon"
+                    src="assets/animation-ready/overcast.svg"
+                    alt=""
+                  />
+                  <span class="daily-forecast-temp"> 42 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-time">8am</span>
+                  <img
+                    class="daily-forecast-icon"
+                    src="assets/animation-ready/thunderstorms-day-rain.svg"
+                    alt="broken"
+                  />
+                  <span class="daily-forecast-temp"> 42 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-time">11am</span>
+                  <img
+                    class="daily-forecast-icon"
+                    src="assets/animation-ready/hail.svg"
+                    alt=""
+                  />
+                  <span class="daily-forecast-temp"> 42 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-time">2pm</span>
+                  <img
+                    class="daily-forecast-icon"
+                    src="assets/animation-ready/partly-cloudy-day-rain.svg"
+                    alt=""
+                  />
+                  <span class="daily-forecast-temp"> 42 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-time">5pm</span>
+                  <img
+                    class="daily-forecast-icon"
+                    src="assets/animation-ready/raindrops.svg"
+                    alt=""
+                  />
+                  <span class="daily-forecast-temp"> 42 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-time">8pm</span>
+                  <img
+                    class="daily-forecast-icon"
+                    src="assets/animation-ready/clear-day.svg"
+                    alt=""
+                  />
+                  <span class="daily-forecast-temp"> 42 &deg; C</span>
+                </li>
+                <li class="flex fd-column day">
+                  <span class="forecast-time">11pm</span>
+                  <img
+                    class="daily-forecast-icon"
+                    src="assets/animation-ready/clear-night.svg"
+                    alt=""
+                  />
+                  <span class="daily-forecast-temp"> 42 &deg; C</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex fd-column country-forecast">
+          <div class="flex fd-column sunrise-sunset">
+            <img
+              class="sunrise-sunset-bg"
+              src="assets/night.png"
+              alt="broken"
+            />
+
+            <div class="sunrise-sunset-time">
+              <h3 class="sunrise-time">
+                <p>Sunrise</p>
+                10:17 PM
+              </h3>
+              <br />
+              <h3 class="sunset-time">
+                <p>Sunset</p>
+                10:17 PM
+              </h3>
+            </div>
+          </div>
+
+          <div class="flex fd-column section-main">
+            <h2 class="flex sidebar-header">
+              <strong> Forecast in other Cities</strong>
+            </h2>
+            <ul class="sidebar-section">
+              <li class="flex countries-forecast">
+                <span class="forecast-city"> </span>
+                <img
+                  class="forecast-icon"
+                  src="assets/animation-ready/loading.svg"
+                  alt=""
+                />
+                <div class="forecast-temp">
+                  <strong class="city-temp"></strong>
+                  <span class="city-status"></span>
+                </div>
+              </li>
+              <li class="flex countries-forecast">
+                <span class="forecast-city"> </span>
+                <img
+                  class="forecast-icon"
+                  src="assets/animation-ready/loading.svg"
+                  alt=""
+                />
+                <div class="forecast-temp">
+                  <strong class="city-temp"> </strong>
+                  <span class="city-status"> </span>
+                </div>
+              </li>
+              <li class="flex countries-forecast">
+                <span class="forecast-city"></span>
+                <img
+                  class="forecast-icon"
+                  src="assets/animation-ready/loading.svg"
+                  alt=""
+                />
+                <div class="forecast-temp">
+                  <strong class="city-temp"> </strong>
+                  <span class="city-status"></span>
+                </div>
+              </li>
+              <!-- <li class="flex countries-forecast">
+                <span class="forecast-city"><br /> </span>
+                <img src="assets/animation-ready/loading.svg" alt="" />
+                <div class="forecast-temp">
+                  <strong class="city-temp">42 &deg; C </strong>
+                  <span class="city-status">light intensity</span>
+                </div>
+              </li> -->
+              <!-- <li class="flex countries-forecast">
+                <span class="forecast-city"><br /> </span>
+                <img
+                  src="assets/animation-ready/thunderstorms-day-rain.svg"
+                  alt=""
+                />
+                <div class="forecast-temp">
+                  <strong class="city-temp"> 42 &deg; C </strong>
+                  <span class="city-status">light intensity drizzle</span>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- <div class="notice-card">
+        <span>
+          If weather information is not retrieved which means daily API
+          quota (1000 free calls/day or request per seconds) has
+          exceeded. Please wait for few seconds before proceeding
+        </span>
+      </div> -->
+
+      <footer class="flex footer">
+        <div class="socials">
+          <i class="fa-solid fa-code"></i>
+          &nbsp;
+          <strong>
+            <a
+              href="https://twitter.com/TallapaneniAvi"
+              target="_blank"
+              rel="noreferrer"
+              id="credits"
+              >Avinash Tallapaneni
+            </a>
+          </strong>
+
+          &nbsp; &nbsp; &nbsp; &nbsp;
+
+          <i class="fa-brands fa-github"></i>
+          &nbsp; &nbsp;
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="flex socialsCredits">
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Credits &nbsp;
+          &nbsp;
+          <a href="https://bas.dev/work/meteocons" target="_blank">
+            <img src="assets/meteocons.svg" width="24px" height="24px" alt="" />
+          </a>
+          <a href="https://open-meteo.com/" target="_blank">
+            <img
+              src="assets/animation-ready/clear-day.svg"
+              width="24px"
+              height="24px"
+              alt="open-meteo.com"
+            />
+          </a>
+          <a href="https://openweathermap.org" target="_blank">
+            <img
+              src="assets/openweather.png"
+              width="36px"
+              height="36px"
+              alt="openweathermap.org"
+            />
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
